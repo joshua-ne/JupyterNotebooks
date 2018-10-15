@@ -1,0 +1,34 @@
+#Notes:
+
+array/List 不能作为 HashMap 的 key! String 可以
+
+Map<Integer, Integer> map; 在更新key的value的时候不能用: map.get(key) += 1; 而要用 map.put(key, map.get(key, 0) +1); 或者更好用:map.put(key, map.getOrDefault(key, 0) +1);[为什么,Integer不是pass by reference吗?]
+
+value = (int) Math.ceil(value);
+Integer.MAX_VALUE
+
+reverse 一个 String 的4种方法:
+a) 把String变为byte[] (.getByte());将这个byte[]反向(in-place或新建);最后new String(newByteArray);
+b) 使用StringBuilder内部的.reverse();
+c) 把String变为char[];
+d) 转成List<Character>,然后用Collections.reverse(listOfString)
+
+
+String str=new String(“XXX”); 
+String str=”XXX”; 
+前者是java中标准的对象创建方式，其创建的对象将直接放置到堆中，每调用一次就会在堆上面创建一个新的对象；后者则会在栈中创建一个对象引用变量str，然后查看字符串池中是否存在”XXX”，如果没有，则将”XXX”存放字符串池，并令引用变量str指向它；如果已经有”XXX”，则直接令str指向它。
+
+
+
+
+
+
+#Todos:
+
+array, list, string, set, queue 之间的相互转换
+
+list, string 的 sort
+
+Immutable in java (String) 
+
+CharSequence Interface!
